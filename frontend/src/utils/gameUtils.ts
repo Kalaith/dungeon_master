@@ -1,13 +1,13 @@
 // Game-related utility functions
-import { UI_CONFIG } from './constants';
+import { uiConfig } from './constants';
 
 /**
  * Get the color class for NPC mood based on mood value
  */
 export const getMoodColor = (mood: number): string => {
-  if (mood >= UI_CONFIG.MOOD_THRESHOLDS.HIGH) return `bg-${UI_CONFIG.COLORS.SUCCESS}-600`;
-  if (mood >= UI_CONFIG.MOOD_THRESHOLDS.MEDIUM) return `bg-${UI_CONFIG.COLORS.WARNING}-500`;
-  return `bg-${UI_CONFIG.COLORS.ERROR}-600`;
+  if (mood >= uiConfig.MOOD_THRESHOLDS.HIGH) return `bg-${uiConfig.COLORS.SUCCESS}-600`;
+  if (mood >= uiConfig.MOOD_THRESHOLDS.MEDIUM) return `bg-${uiConfig.COLORS.WARNING}-500`;
+  return `bg-${uiConfig.COLORS.ERROR}-600`;
 };
 
 /**

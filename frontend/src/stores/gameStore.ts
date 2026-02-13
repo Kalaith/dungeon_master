@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { NPC } from '../types/npc';
 import type { Stats } from '../types/stats';
-import { INITIAL_EVENTS, GAME_CONFIG } from '../utils/constants';
+import { initialEvents, gameConfig } from '../utils/constants';
 
 interface GameState {
   npcs: NPC[];
@@ -28,8 +28,8 @@ export const useGameStore = create<GameStore>()(
       // State
       npcs: [],
       selectedNPC: null,
-      events: [...INITIAL_EVENTS],
-      location: GAME_CONFIG.INITIAL_LOCATION,
+      events: [...initialEvents],
+      location: gameConfig.INITIAL_LOCATION,
       stats: null,
 
       // Actions
