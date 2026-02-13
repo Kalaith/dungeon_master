@@ -1,8 +1,8 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import type { NPC } from '../types/npc';
-import type { Stats } from '../types/stats';
-import { initialEvents, gameConfig } from '../utils/constants';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import type { NPC } from "../types/npc";
+import type { Stats } from "../types/stats";
+import { initialEvents, gameConfig } from "../utils/constants";
 
 interface GameState {
   npcs: NPC[];
@@ -36,18 +36,19 @@ export const useGameStore = create<GameStore>()(
       setNpcs: (npcs) => set({ npcs }),
       setSelectedNPC: (selectedNPC) => set({ selectedNPC }),
       setStats: (stats) => set({ stats }),
-      addEvent: (event) => set((state) => ({
-        events: [...state.events, event]
-      })),
-      setLocation: (location) => set({ location })
+      addEvent: (event) =>
+        set((state) => ({
+          events: [...state.events, event],
+        })),
+      setLocation: (location) => set({ location }),
     }),
     {
-      name: 'game-storage',
+      name: "game-storage",
       partialize: (state) => ({
         selectedNPC: state.selectedNPC,
         location: state.location,
-        events: state.events
-      })
-    }
-  )
+        events: state.events,
+      }),
+    },
+  ),
 );
