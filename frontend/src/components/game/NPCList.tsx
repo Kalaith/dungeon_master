@@ -1,6 +1,6 @@
-import React from "react";
-import NPCCard from "./NPCCard";
-import type { NPC } from "../../types/npc";
+import React from 'react';
+import NPCCard from './NPCCard';
+import type { NPC } from '../../types/npc';
 
 interface NPCListProps {
   npcs: NPC[];
@@ -10,13 +10,8 @@ interface NPCListProps {
 
 const NPCList: React.FC<NPCListProps> = ({ npcs, onSelect, selectedId }) => (
   <div className="flex flex-col gap-4">
-    {npcs.map((npc) => (
-      <NPCCard
-        key={npc.id}
-        npc={npc}
-        onSelect={onSelect}
-        selected={selectedId === npc.id}
-      />
+    {npcs.map(npc => (
+      <NPCCard key={npc.id} npc={npc} onSelect={onSelect} selected={selectedId === npc.id} />
     ))}
   </div>
 );

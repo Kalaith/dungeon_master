@@ -1,29 +1,21 @@
-import React, { useEffect } from "react";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import GameBoard from "./components/layout/GameBoard";
-import StorySection from "./components/layout/StorySection";
-import StoryCard from "./components/layout/StoryCard";
-import StoryContent from "./components/layout/StoryContent";
-import StoryLocation from "./components/layout/StoryLocation";
-import NPCPanel from "./components/layout/NPCPanel";
-import NPCList from "./components/game/NPCList";
-import { fetchNPCs } from "./api/npcs";
-import { fetchStats } from "./api/stats";
-import StatusMeters from "./components/game/StatusMeters";
-import { useGameStore } from "./stores/gameStore";
+import React, { useEffect } from 'react';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import GameBoard from './components/layout/GameBoard';
+import StorySection from './components/layout/StorySection';
+import StoryCard from './components/layout/StoryCard';
+import StoryContent from './components/layout/StoryContent';
+import StoryLocation from './components/layout/StoryLocation';
+import NPCPanel from './components/layout/NPCPanel';
+import NPCList from './components/game/NPCList';
+import { fetchNPCs } from './api/npcs';
+import { fetchStats } from './api/stats';
+import StatusMeters from './components/game/StatusMeters';
+import { useGameStore } from './stores/gameStore';
 
 const App: React.FC = () => {
-  const {
-    npcs,
-    selectedNPC,
-    events,
-    location,
-    stats,
-    setNpcs,
-    setSelectedNPC,
-    setStats,
-  } = useGameStore();
+  const { npcs, selectedNPC, events, location, stats, setNpcs, setSelectedNPC, setStats } =
+    useGameStore();
 
   useEffect(() => {
     fetchNPCs().then(setNpcs);
@@ -54,11 +46,7 @@ const App: React.FC = () => {
                 <h3 className="text-xl font-semibold">Your Party</h3>
               </div>
               <div className="p-6">
-                <NPCList
-                  npcs={npcs}
-                  onSelect={handleSelectNPC}
-                  selectedId={selectedNPC}
-                />
+                <NPCList npcs={npcs} onSelect={handleSelectNPC} selectedId={selectedNPC} />
               </div>
             </div>
           </NPCPanel>

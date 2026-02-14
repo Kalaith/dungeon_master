@@ -1,6 +1,6 @@
-import React from "react";
-import type { NPC } from "../../types/npc";
-import { getMoodColor, getPortraitColor } from "../../utils/gameUtils";
+import React from 'react';
+import type { NPC } from '../../types/npc';
+import { getMoodColor, getPortraitColor } from '../../utils/gameUtils';
 
 interface NPCCardProps {
   npc: NPC;
@@ -10,7 +10,7 @@ interface NPCCardProps {
 
 const NPCCard: React.FC<NPCCardProps> = ({ npc, onSelect, selected }) => (
   <div
-    className={`flex items-center gap-3 p-3 border rounded-lg bg-white cursor-pointer transition-all duration-150 ${selected ? "border-primary bg-gray-100" : "border-gray-200"} focus:outline-none focus:ring-2 focus:ring-primary`}
+    className={`flex items-center gap-3 p-3 border rounded-lg bg-white cursor-pointer transition-all duration-150 ${selected ? 'border-primary bg-gray-100' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-primary`}
     onClick={() => onSelect(npc.id)}
     tabIndex={0}
     role="button"
@@ -33,9 +33,7 @@ const NPCCard: React.FC<NPCCardProps> = ({ npc, onSelect, selected }) => (
             style={{ width: `${npc.mood}%` }}
           ></div>
         </div>
-        <span className="text-xs text-gray-500 font-medium min-w-[30px]">
-          {npc.mood}
-        </span>
+        <span className="text-xs text-gray-500 font-medium min-w-[30px]">{npc.mood}</span>
       </div>
     </div>
   </div>

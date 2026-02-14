@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface StatusMetersProps {
   tension: number;
@@ -9,16 +9,10 @@ interface StatusMetersProps {
 }
 
 const getTensionText = (tension: number) =>
-  tension >= 70 ? "High" : tension >= 40 ? "Medium" : "Low";
+  tension >= 70 ? 'High' : tension >= 40 ? 'Medium' : 'Low';
 
 const getMoraleText = (morale: number) =>
-  morale >= 70
-    ? "Great"
-    : morale >= 50
-      ? "Good"
-      : morale >= 30
-        ? "Fair"
-        : "Poor";
+  morale >= 70 ? 'Great' : morale >= 50 ? 'Good' : morale >= 30 ? 'Fair' : 'Poor';
 
 const StatusMeters: React.FC<StatusMetersProps> = ({
   tension,
@@ -54,25 +48,19 @@ const StatusMeters: React.FC<StatusMetersProps> = ({
     </div>
     <div className="flex flex-col gap-2 items-center resources">
       <div className="flex flex-col items-center resource">
-        <span className="text-sm text-gray-500 font-medium resource-label">
-          Gold:
-        </span>
+        <span className="text-sm text-gray-500 font-medium resource-label">Gold:</span>
         <span className="font-semibold text-gray-900" id="gold-amount">
           {gold}
         </span>
       </div>
       <div className="flex flex-col items-center resource">
-        <span className="text-sm text-gray-500 font-medium resource-label">
-          Supplies:
-        </span>
+        <span className="text-sm text-gray-500 font-medium resource-label">Supplies:</span>
         <span className="font-semibold text-gray-900" id="supplies-amount">
           {supplies}
         </span>
       </div>
       <div className="flex flex-col items-center resource">
-        <span className="text-sm text-gray-500 font-medium resource-label">
-          Reputation:
-        </span>
+        <span className="text-sm text-gray-500 font-medium resource-label">Reputation:</span>
         <span className="font-semibold text-gray-900" id="reputation-amount">
           {reputation}
         </span>
