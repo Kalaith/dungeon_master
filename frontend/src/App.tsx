@@ -8,21 +8,20 @@ import StoryContent from './components/layout/StoryContent';
 import StoryLocation from './components/layout/StoryLocation';
 import NPCPanel from './components/layout/NPCPanel';
 import NPCList from './components/game/NPCList';
-import { fetchNPCs } from './api/npcs';
-import { fetchStats } from './api/stats';
 import StatusMeters from './components/game/StatusMeters';
 import { useGameStore } from './stores/gameStore';
 
 const App: React.FC = () => {
-  const { npcs, selectedNPC, events, location, stats, setNpcs, setSelectedNPC, setStats } =
+  const { npcs, selectedNPC, events, location, stats, initializeBackend, setSelectedNPC, isLoading, error } =
     useGameStore();
 
   useEffect(() => {
-    fetchNPCs().then(setNpcs);
-    fetchStats().then(setStats);
-  }, [setNpcs, setStats]);
+    void initializeBackend();
+  }, [initializeBackend]);
 
-  const handleSelectNPC = (id: string) => setSelectedNPC(id);
+  const handleSelectNPC = (id: string) => {
+    void setSelectedNPC(id);
+  };
 
   return (
     <div className="game-container">
@@ -35,6 +34,8 @@ const App: React.FC = () => {
               <StoryLocation location={location} />
             </div>
             <div className="card__body">
+              {isLoading && <p className="text-sm text-gray-500">Syncing with the backend...</p>}
+              {error && <p className="text-sm text-red-600">{error}</p>}
               <StoryContent events={events} />
             </div>
           </StoryCard>
